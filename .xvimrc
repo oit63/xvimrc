@@ -1,0 +1,63 @@
+" 検索パターンにおいて大文字小文字を区別しない
+set noignorecase
+
+" 検索パターンが大文字を含んでいたら、ignorecaseを上書きする
+set smartcase
+
+
+"undoの回数上限を2000
+set undolevels=2000
+
+"ファイル名補完
+set wildmenu 
+
+
+"Ctr+eで挿入モードから抜ける
+inoremap <C-e> <ESC>
+cnoremap <C-e> <i>
+
+
+"挿入モードでのカーソル移動
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
+
+"挿入モードでのカーソル移動
+nnoremap <C-j> <PageDown>
+nnoremap <C-k> <PageUp>
+
+" 行末まで削除
+inoremap <C-d-l> <Enter><d-d><C-k><S-a>
+
+
+" フォーマット
+inoremap <C-l> <D-a><C-i>
+cnoremap <C-l> <D-a><C-i>
+
+
+" 保存処理で、ビルドするj
+"cnoremap :w :b<return><D-b>
+
+" カラー
+colorscheme: gruvbox
+
+
+" ナビゲーションバーの表示非表示のショートかっと
+map ,tl :xccmd toggleNavigatorsVisibility<CR>
+map ,tb :xccmd toggleDebuggerVisibility<CR>
+map ,tr :xccmd toggleUtilitiesVisibility<CR>
+map ,tt :xccmd toggleToolbarShown<CR>
+
+" 進む、戻る
+map ,f :xccmd goForwardInHistoryByCommand<CR>
+map ,b :xccmd goBackInHistoryByCommand<CR>
+
+
+" 全選択
+map ,ea :xccmd toggleTokenizedEditing<CR>
+
+" コードフォーマット
+map ,fm :xccmd indentSelection<CR>
+noremap ,cf <D-a>:xccmd indentSelection<CR>
